@@ -1,0 +1,1 @@
+# ionic2_ng2-translate
