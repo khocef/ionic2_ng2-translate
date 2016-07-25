@@ -17,9 +17,12 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
 
-      translate.setDefaultLang("fr");
+      let userLang = navigator.language.split('-')[0];
+      userLang = /(fr|en)/gi.test(userLang) ? userLang : 'en';
 
-      translate.use("fr");
+      translate.setDefaultLang("en");
+
+      translate.use(userLang);
     });
   }
 }
