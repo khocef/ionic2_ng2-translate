@@ -1,12 +1,5 @@
-<<<<<<< HEAD
 {
     "hello": "Salut",
     "fr": "Francais",
     "en": "Anglais"
-=======
-{
-    "hello": "Salut",
-    "fr": "Francais",
-    "en": "Anglais"
->>>>>>> d38b935ce71caed3a02d985f7f03393b2ca3ea08
 }
