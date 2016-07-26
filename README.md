@@ -1,5 +1,8 @@
-<<<<<<< HEAD
-todo
-=======
 # ionic2_ng2-translate
->>>>>>> d38b935ce71caed3a02d985f7f03393b2ca3ea08
+
+A basic example of using ng2-translate to implement internationalisation in ionic2/angular2 application.
+
+## Running the application
+* ionic platform add android
+* ionic build android
+* ionic serve --lab
