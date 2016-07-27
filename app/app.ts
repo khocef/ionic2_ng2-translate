@@ -2,11 +2,12 @@ import {Component} from '@angular/core';
 import {Platform, ionicBootstrap} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {HomePage} from './pages/home/home';
-import {TranslateService, TranslateLoader, TranslateStaticLoader} from 'ng2-translate/ng2-translate';
+import {TranslateService, TranslatePipe, TranslateLoader, TranslateStaticLoader} from 'ng2-translate/ng2-translate';
 import {Http, HTTP_PROVIDERS} from '@angular/http';
 
 @Component({
-  template: '<ion-nav [root]="rootPage"></ion-nav>'
+  templateUrl: 'build/app.html',
+  pipes: [TranslatePipe]
 })
 export class MyApp {
   rootPage: any = HomePage;
@@ -29,7 +30,7 @@ export class MyApp {
 
 ionicBootstrap(MyApp, [
   HTTP_PROVIDERS,
-  { 
+  {
     provide: TranslateLoader,
     useFactory: (http: Http) => new TranslateStaticLoader(http, 'assets/i18n', '.json'),
     deps: [Http]
