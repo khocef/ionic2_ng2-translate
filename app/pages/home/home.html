@@ -24,5 +24,13 @@
     </button>
     </ion-item>
   </ion-card>
+<ion-list>
+<ion-list-header>
+  List Header
+</ion-list-header>
+<ion-item *ngFor="let todo of todos">
+  {{todo.name}}
+</ion-item>
+</ion-list>
 
 </ion-content>
