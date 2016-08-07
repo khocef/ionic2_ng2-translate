@@ -21,7 +21,7 @@ export class MyApp {
       let userLang = navigator.language.split('-')[0];
       userLang = /(fr|en)/gi.test(userLang) ? userLang : 'en';
 
-      translate.setDefaultLang("en");
+      translate.setDefaultLang('en');
 
       translate.use(userLang);
     });

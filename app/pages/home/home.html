@@ -16,21 +16,51 @@
     </ion-card-content>
 
     <ion-item>
-        <button clear item-left (click)="changeLocal('fr')">
+      <button clear item-left (click)="changeLocal('fr')">
         {{'fr' | translate}}
     </button>
-        <button clear item-right (click)="changeLocal('en')">
+      <button clear item-right (click)="changeLocal('en')">
         {{'en' | translate}}
     </button>
     </ion-item>
   </ion-card>
-<ion-list>
-<ion-list-header>
-  List Header
-</ion-list-header>
-<ion-item *ngFor="let todo of todos">
-  {{todo.name}}
-</ion-item>
-</ion-list>
+  <ion-list>
+    <ion-list-header>
+      List Header
+    </ion-list-header>
+    <ion-item *ngFor="let todo of todos">
+      {{todo.name}}
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <form [formGroup]="registerForm">
+      <ion-item>
+        <ion-label floating>Fisrt name</ion-label>
+        <ion-input type="text" formControlName="fname"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Last name</ion-label>
+        <ion-input type="text" formControlName="lname"></ion-input>
+      </ion-item>
+      <div formGroupName="adress">
+      <ion-item>
+        <ion-label floating>Street</ion-label>
+        <ion-input type="text" formControlName="street"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Zip code</ion-label>
+        <ion-input type="text" formControlName="zip"></ion-input>
+      </ion-item>
+      </div>
+      <ion-item>
+        <button full type="submit">Submit</button>
+      </ion-item>
+    </form>
+  </ion-list>
+  <div>
+    {{ registerForm.value | json }}
+  </div>
+
 
 </ion-content>
