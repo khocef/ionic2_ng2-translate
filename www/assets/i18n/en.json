@@ -1,5 +1,8 @@
 {
     "hello": "Hello",
     "fr": "French",
-    "en": "English"
+    "en": "English",
+    "title": "Ionic 2 Best App",
+    "login": "Login",
+    "logout": "Logout"
 }

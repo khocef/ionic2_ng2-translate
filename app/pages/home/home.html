@@ -2,17 +2,29 @@
   <ion-navbar>
     <button menuToggle><ion-icon name="menu"></ion-icon></button>
     <ion-title>
-      Ionic Blank
+      {{'title' | translate}}
     </ion-title>
+    <ion-buttons end>
+      <button *ngIf="!user.email" (click)="login()">
+      {{'login' | translate}}
+    </button>
+      <button *ngIf="user.email" (click)="logout()">
+      <img src="{{user.photoURL}}" class="avatar" />
+    </button>
+
+    </ion-buttons>
+
   </ion-navbar>
 </ion-header>
 
 <ion-content padding class="home">
 
+  {{user | json}}
   <ion-card>
     <ion-card-content>
-      <p>{{'hello' | translate}}</p>
-      <img src="assets/img/img-icon.png" />
+      <p>{{'hello' | translate}}&nbsp;{{user.displayName}}</p>
+      <!--<img src="assets/img/img-icon.png" />-->
+      <img [src]="user.photoURL"/>
     </ion-card-content>
 
     <ion-item>
@@ -44,14 +56,14 @@
         <ion-input type="text" formControlName="lname"></ion-input>
       </ion-item>
       <div formGroupName="adress">
-      <ion-item>
-        <ion-label floating>Street</ion-label>
-        <ion-input type="text" formControlName="street"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>Zip code</ion-label>
-        <ion-input type="text" formControlName="zip"></ion-input>
-      </ion-item>
+        <ion-item>
+          <ion-label floating>Street</ion-label>
+          <ion-input type="text" formControlName="street"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Zip code</ion-label>
+          <ion-input type="text" formControlName="zip"></ion-input>
+        </ion-item>
       </div>
       <ion-item>
         <button full type="submit">Submit</button>
