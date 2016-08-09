@@ -37,7 +37,7 @@ export class HomePage implements OnInit {
     });
 
     this.registerForm = this.fb.group({
-      fname: ['David', Validators.required],
+      fname: ['David',[Validators.required, Validators.minLength(5)]],
       lname: ['', Validators.required],
       adress: this.fb.group({
         street: ['', Validators.required],

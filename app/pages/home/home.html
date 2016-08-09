@@ -18,13 +18,17 @@
 </ion-header>
 
 <ion-content padding class="home">
-
-  {{user | json}}
+  
+  <ion-item>
+    <ion-label stacked>Message</ion-label>
+   <ion-textarea rows="6" placeholder="enter long description here..." value="{{user | json}}"></ion-textarea>
+ </ion-item>
+  
   <ion-card>
     <ion-card-content>
       <p>{{'hello' | translate}}&nbsp;{{user.displayName}}</p>
       <!--<img src="assets/img/img-icon.png" />-->
-      <img [src]="user.photoURL"/>
+      <img [src]="user.photoURL" />
     </ion-card-content>
 
     <ion-item>
@@ -49,7 +53,10 @@
     <form [formGroup]="registerForm">
       <ion-item>
         <ion-label floating>Fisrt name</ion-label>
-        <ion-input type="text" formControlName="fname"></ion-input>
+        <ion-input type="text" formControlName="fname"></ion-input>        
+      </ion-item>
+      <ion-item class="error-message" *ngIf="!registerForm.controls.fname.valid">
+        <p>Name is required (minimum 5 characters).</p>
       </ion-item>
       <ion-item>
         <ion-label floating>Last name</ion-label>
@@ -62,17 +69,20 @@
         </ion-item>
         <ion-item>
           <ion-label floating>Zip code</ion-label>
-          <ion-input type="text" formControlName="zip"></ion-input>
+          <ion-input type="number" formControlName="zip"></ion-input>
         </ion-item>
       </div>
       <ion-item>
+        <ion-label floating>Last name</ion-label>
+        <ion-input type="text" formControlName="lname"></ion-input>
+      </ion-item>
+      <ion-item>
         <button full type="submit">Submit</button>
       </ion-item>
+
     </form>
   </ion-list>
   <div>
     {{ registerForm.value | json }}
   </div>
-
-
 </ion-content>
