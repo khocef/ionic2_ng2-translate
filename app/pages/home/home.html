@@ -49,7 +49,6 @@
     </ion-item>
   </ion-list>
 
-  <ion-list>
     <form [formGroup]="registerForm">
       <ion-item>
         <ion-label floating>Fisrt name</ion-label>
@@ -73,15 +72,10 @@
         </ion-item>
       </div>
       <ion-item>
-        <ion-label floating>Last name</ion-label>
-        <ion-input type="text" formControlName="lname"></ion-input>
-      </ion-item>
-      <ion-item>
         <button full type="submit">Submit</button>
       </ion-item>
 
     </form>
-  </ion-list>
   <div>
     {{ registerForm.value | json }}
   </div>
