@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { FormGroup, REACTIVE_FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/forms';
 import {NavController} from 'ionic-angular';
-import {TranslatePipe, TranslateService} from 'ng2-translate/ng2-translate';
+import {TranslatePipe} from 'ng2-translate/ng2-translate';
 import {Todo} from '../dto/todo';
 import {TodoService} from '../../providers/todo-service/todo-service';
 import { AngularFire, AuthProviders } from 'angularfire2';
@@ -9,7 +9,6 @@ import { AngularFire, AuthProviders } from 'angularfire2';
 @Component({
   templateUrl: 'build/pages/home/home.html',
   pipes: [TranslatePipe],
-  providers: [TodoService],
   directives: [REACTIVE_FORM_DIRECTIVES]
 })
 export class HomePage implements OnInit {
@@ -20,7 +19,6 @@ export class HomePage implements OnInit {
   appName = 'Ionic App';
 
   constructor(private nav: NavController,
-    private translate: TranslateService,
     private todoService: TodoService,
     private fb: FormBuilder,
     private fire: AngularFire) {
@@ -37,7 +35,7 @@ export class HomePage implements OnInit {
     });
 
     this.registerForm = this.fb.group({
-      fname: ['David',[Validators.required, Validators.minLength(5)]],
+      fname: ['David', [Validators.required, Validators.minLength(5)]],
       lname: ['', Validators.required],
       adress: this.fb.group({
         street: ['', Validators.required],
@@ -47,9 +45,7 @@ export class HomePage implements OnInit {
     this.todoService.load().then(todos => this.todos = todos);
   }
 
-  changeLocal(lang) {
-    this.translate.use(lang);
-  }
+
 
   login() {
     this.fire.auth.login({

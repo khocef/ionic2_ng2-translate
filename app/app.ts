@@ -13,12 +13,13 @@ import {FIREBASE_PROVIDERS,
 
 @Component({
   templateUrl: 'build/app.html',
-  pipes: [TranslatePipe]
+  pipes: [TranslatePipe],
+  providers: [TranslateService]
 })
 export class MyApp {
   rootPage: any = HomePage;
 
-  constructor(platform: Platform, translate: TranslateService) {
+  constructor(private platform: Platform, private translate: TranslateService) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -32,6 +33,11 @@ export class MyApp {
       translate.use(userLang);
     });
   }
+
+    changeLocal(lang) {
+    this.translate.use(lang);
+  }
+
 }
 
 ionicBootstrap(MyApp, [

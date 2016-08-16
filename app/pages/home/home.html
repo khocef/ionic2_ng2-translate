@@ -23,23 +23,7 @@
     <ion-label stacked>Message</ion-label>
    <ion-textarea rows="6" placeholder="enter long description here..." value="{{user | json}}"></ion-textarea>
  </ion-item>
-  
-  <ion-card>
-    <ion-card-content>
-      <p>{{'hello' | translate}}&nbsp;{{user.displayName}}</p>
-      <!--<img src="assets/img/img-icon.png" />-->
-      <img [src]="user.photoURL" />
-    </ion-card-content>
 
-    <ion-item>
-      <button clear item-left (click)="changeLocal('fr')">
-        {{'fr' | translate}}
-    </button>
-      <button clear item-right (click)="changeLocal('en')">
-        {{'en' | translate}}
-    </button>
-    </ion-item>
-  </ion-card>
   <ion-list>
     <ion-list-header>
       List Header
